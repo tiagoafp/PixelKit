@@ -8,7 +8,7 @@ import SwiftUI
 
 public protocol Theme {
     var background: Color { get }
-    var suface: Color { get }
+    var surface: Color { get }
     var surfaceSecondary: Color { get }
     var textPrimary: Color { get }
     var textSecondary: Color { get }
@@ -22,8 +22,10 @@ public protocol Theme {
 }
 
 public struct DefaultTheme: Theme {
+    public init() {}
+    
     public var background: Color { Color("background", bundle: .module) }
-    public var suface: Color { Color("suface", bundle: .module) }
+    public var surface: Color { Color("surface", bundle: .module) }
     public var surfaceSecondary: Color { Color("surfaceSecondary", bundle: .module) }
     public var textPrimary: Color { Color("textPrimary", bundle: .module) }
     public var textSecondary: Color { Color("textSecondary", bundle: .module) }
@@ -40,7 +42,7 @@ public struct DefaultTheme: Theme {
     let theme = DefaultTheme()
     VStack {
         Rectangle().fill(theme.background)
-        Rectangle().fill(theme.suface)
+        Rectangle().fill(theme.surface)
         Rectangle().fill(theme.surfaceSecondary)
         Rectangle().fill(theme.textPrimary)
         Rectangle().fill(theme.textSecondary)
@@ -59,7 +61,7 @@ public struct DefaultTheme: Theme {
     
     VStack {
         Rectangle().fill(theme.background)
-        Rectangle().fill(theme.suface)
+        Rectangle().fill(theme.surface)
         Rectangle().fill(theme.surfaceSecondary)
         Rectangle().fill(theme.textPrimary)
         Rectangle().fill(theme.textSecondary)
