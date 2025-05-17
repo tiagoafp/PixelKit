@@ -46,7 +46,10 @@ public struct DisplayCell: View {
             DisplayCell(
                 .init(
                     onDelete: .init({}),
-                    image: .init(.rounded(Image("ic_plus", bundle: .module))),
+                    image: .init(
+                        .rounded(
+                            .image(Image("ic_plus", bundle: .module))
+                    )),
                     labels: .init(
                         title: .init(title: "Title"),
                         subtitle: .init(subtitle: "Subtitle")
@@ -56,23 +59,4 @@ public struct DisplayCell: View {
             )
         }
     }
-}
-
-#Preview("Dark") {
-    ZStack {
-        Rectangle().fill(PixelKit.shared.theme.background)
-        VStack {
-            DisplayCell(
-                .init(
-                    onDelete: .init({}),
-                    image: .init(.rounded(Image("ic_plus", bundle: .module))),
-                    labels: .init(
-                        title: .init(title: "Title"),
-                        subtitle: .init(subtitle: "Subtitle")
-                    ),
-                    disclosure: true
-                )
-            )
-        }
-    }.preferredColorScheme(.dark)
 }

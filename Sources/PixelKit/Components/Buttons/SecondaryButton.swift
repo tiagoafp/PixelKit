@@ -34,6 +34,14 @@ public struct SecondaryButton: View {
                 .foregroundStyle(backgroundColor))
         }
     }
+    
+    static func `default`(_ title: String ,action: @escaping () -> Void) -> Self {
+        .init(title: title, action: action, variant: .default)
+    }
+    
+    static func destructive(_ title: String ,action: @escaping () -> Void) -> Self {
+        .init(title: title, action: action, variant: .destructive)
+    }
 }
 
 extension SecondaryButton {

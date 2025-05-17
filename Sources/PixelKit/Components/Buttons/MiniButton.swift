@@ -28,6 +28,14 @@ public struct MiniButton: View {
                 .foregroundStyle(backgroundColor))
         }
     }
+    
+    static func `default`(action: @escaping () -> Void) -> Self {
+        .init(action: action, variant: .default)
+    }
+    
+    static func destructive(action: @escaping () -> Void) -> Self {
+        .init(action: action, variant: .destructive)
+    }
 }
 
 extension MiniButton {

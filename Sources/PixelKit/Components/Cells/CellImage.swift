@@ -16,7 +16,6 @@ public struct CellImage: View {
         switch variant {
         case .rounded(let image):
             return image
-                .resizable()
                 .frame(width: 40, height: 40)
                 .clipShape(Circle())
         }
@@ -25,6 +24,10 @@ public struct CellImage: View {
 
 extension CellImage {
     public enum Variant {
-        case rounded(Image)
+        case rounded(ImageView)
     }
+}
+
+#Preview {
+    CellImage(.rounded(.init(content: .loading)))
 }

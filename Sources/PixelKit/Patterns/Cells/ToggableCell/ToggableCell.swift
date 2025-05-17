@@ -44,7 +44,7 @@ struct Toolbar_Previews: PreviewProvider {
                 ToggableCell(
                     .init(
                         onDelete: .init({}),
-                        image: .init(.rounded(Image("ic_plus", bundle: .module))),
+                        image: .init(.rounded(.image(Image("ic_plus", bundle: .module)))),
                         labels: .init(
                             title: .init(title: "Title"),
                             subtitle: .init(subtitle: "Subtitle")
@@ -67,7 +67,7 @@ struct Toolbar_Dark_Previews: PreviewProvider {
                 ToggableCell(
                     .init(
                         onDelete: .init({}),
-                        image: .init(.rounded(Image("ic_plus", bundle: .module))),
+                        image: .init(.rounded(.image(Image("ic_plus", bundle: .module)))),
                         labels: .init(
                             title: .init(title: "Title"),
                             subtitle: .init(subtitle: "Subtitle")
