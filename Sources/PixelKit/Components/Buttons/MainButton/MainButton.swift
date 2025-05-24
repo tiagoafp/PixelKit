@@ -7,23 +7,18 @@
 import SwiftUI
 
 public struct MainButton: View {
-    let title: String
-    let action: () -> Void
+    let content: Content
     
-    init(
-        title: String,
-        action: @escaping () -> Void
-    ) {
-        self.title = title
-        self.action = action
+    init(content: Content) {
+        self.content = content
     }
     
     public var body: some View {
-        Button(action: action) {
+        Button(action: content.action) {
             ZStack(alignment: .center) {
                 Rectangle().frame(height: 0)
                 
-                Text(title)
+                Text(content.title)
                     .font(PixelKit.shared.font.headline)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 15)
@@ -36,22 +31,8 @@ public struct MainButton: View {
 }
 
 
-extension MainButton {
-    public struct Content {
-        public let title: String
-        public let onPress: () -> Void
-        
-        public init(title: String, onPress: @escaping () -> Void) {
-            self.title = title
-            self.onPress = onPress
-        }
-    }
-}
-
 #Preview {
-    MainButton(
-        title: "Button",
-        action: {}
-    )
-    .padding(16)
+    MainButton
+        .make(title: "Title", action: {})
+        .build()
 }

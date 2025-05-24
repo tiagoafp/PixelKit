@@ -30,6 +30,7 @@ public struct DisplayCell: View {
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
+            .frame(minHeight: 56)
             
             if content.separator {
                 CellSeparatorView()

@@ -14,7 +14,7 @@ public struct SectionTitleCell: View {
     }
     
     public var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             HStack {
                 Text(content.title)
                     .font(PixelKit.shared.font.headline)
@@ -22,18 +22,22 @@ public struct SectionTitleCell: View {
                 Spacer()
                 content.action
             }
-            .frame(minHeight: 60)
         }
-        .padding(16)
+        .padding(.top, 16)
+        .padding(.bottom, 8)
+        .padding(.horizontal, 16)
     }
 }
 
 
 #Preview {
-    SectionTitleCell(
-        content: .init(
-            title: "asdas",
-            action: .init(title: "asdas", action: {})
+    VStack(spacing: 0) {
+        SectionTitleCell(
+            content: .init(
+                title: "asdas",
+                action: .init(title: "asdas", action: {})
+            )
         )
-    )
+        Rectangle()
+    }
 }

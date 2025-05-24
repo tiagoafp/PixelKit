@@ -7,19 +7,14 @@
 import SwiftUI
 
 public struct MiniButton: View {
-    public let action: () -> Void
-    let variant: Variant
+    public let content: Content
     
-    init(
-        action: @escaping () -> Void,
-        variant: Variant = .default
-    ) {
-        self.action = action
-        self.variant = variant
+    init(content: Content) {
+        self.content = content
     }
     
     public var body: some View {
-        Button(action: action) {
+        Button(action: content.action) {
             ZStack(alignment: .center) {
                 Image("ic_plus", bundle: .module)
             }
@@ -28,19 +23,11 @@ public struct MiniButton: View {
                 .foregroundStyle(backgroundColor))
         }
     }
-    
-    static func `default`(action: @escaping () -> Void) -> Self {
-        .init(action: action, variant: .default)
-    }
-    
-    static func destructive(action: @escaping () -> Void) -> Self {
-        .init(action: action, variant: .destructive)
-    }
 }
 
 extension MiniButton {
     var backgroundColor: Color {
-        switch variant {
+        switch content.variant {
         case .default:
             PixelKit.shared.theme.primary
         case .destructive:
@@ -48,7 +35,6 @@ extension MiniButton {
         }
     }
 }
-
 
 extension MiniButton {
     public enum Variant {
@@ -58,11 +44,6 @@ extension MiniButton {
 }
 
 #Preview {
-    MiniButton(
-        action: {}
-    )
-    MiniButton(
-        action: {},
-        variant: .destructive
-    )
+    MiniButton.make({}).build()
+    MiniButton.make(variant: .destructive, {}).build()
 }
